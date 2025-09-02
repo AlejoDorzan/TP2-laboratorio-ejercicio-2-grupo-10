@@ -146,7 +146,26 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_txtValorTextValueChanged
 
     private void btnConvertirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConvertirActionPerformed
-                                                                             
+                              
+    try {
+        double valor = Double.parseDouble(txtValor.getText());
+        double resultado;
+
+        if (rbCelsiusFahrenheit.isSelected()) {
+            resultado = (valor * 9/5) + 32;
+            lblResultado.setText(valor + " °C = " + resultado + " °F");
+        } else if (rbFahrenheitCelsius.isSelected()) {
+            resultado = (valor - 32) * 5/9;
+            lblResultado.setText(valor + " °F = " + resultado + " °C");
+        } else {
+            lblResultado.setText("Seleccione una opción");
+        }
+
+    } catch (NumberFormatException e) {
+        lblResultado.setText("Ingrese un número válido");
+    
+} 
+
     
 
 
